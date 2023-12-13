@@ -13,6 +13,7 @@ This fun web application allows users to explore interesting facts about numbers
 
 - Fetches and displays amusing facts about numbers from the Numbers API.
 - Supports various categories, including trivia, math, date, and year.
+- Generates random number + type.
 
 ## Technologies Used 🛠️
 

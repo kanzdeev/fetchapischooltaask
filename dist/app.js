@@ -46,7 +46,7 @@ function getNumberFact() {
                     factResult = document.getElementById('factResult');
                     number = numberInput.value;
                     category = selectCategory.value;
-                    if (!number) {
+                    if (!number || isNaN(+number)) {
                         alert('Please enter a valid number');
                         return [2 /*return*/];
                     }
@@ -67,6 +67,28 @@ function getNumberFact() {
                     factResult.innerHTML = 'Error fetching data. Please try again.';
                     return [3 /*break*/, 5];
                 case 5: return [2 /*return*/];
+            }
+        });
+    });
+}
+function getRandomCategoryIndex() {
+    var selectCategory = document.getElementById('selectCategory');
+    return Math.floor(Math.random() * selectCategory.options.length);
+}
+function generateRandomNumberAndFact() {
+    return __awaiter(this, void 0, void 0, function () {
+        var randomInput, selectCategory;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    randomInput = document.getElementById('numberInput');
+                    randomInput.value = Math.floor(Math.random() * 100).toString();
+                    selectCategory = document.getElementById('selectCategory');
+                    selectCategory.selectedIndex = Math.floor(Math.random() * selectCategory.options.length);
+                    return [4 /*yield*/, getNumberFact()];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
             }
         });
     });
